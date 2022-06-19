@@ -1,0 +1,25 @@
+/*
+
+Input: s = "lEeTcOdE"
+Output: "E"
+Explanation:
+The letter 'E' is the only letter to appear in both lower and upper case.
+
+*/
+
+Code:
+
+class Solution {
+public:
+    string greatestLetter(string s) {
+    unordered_map<char , int>m;
+    for(auto i : s){
+     m[i]++;
+    }
+    for(char ch = 'Z' ; ch >= 'A'; ch--){
+      if(m[ch + 32] && m[ch]) 
+        return string(1 , ch);
+    }
+     return "";    
+    }
+};
