@@ -1,0 +1,38 @@
+//Codechef
+
+Code:-
+#include <bits/stdc++.h>
+using namespace std;
+void palindrom(string,string);
+
+int main() {
+    int t;
+    cin>>t;
+    while(t--){
+        int num;
+        cin>>num;
+        string str,str1,str2;
+        cin>>str;
+        for(int i=0;i<num;i++){
+            if(i%2==0){
+                str1=str1+str[i];
+            }
+            else{
+                str2=str2+str[i];
+            }
+        }
+        palindrom(str1,str2);
+    }
+}
+
+void palindrom(string str1,string str2){
+
+    sort(str1.begin(),str1.end());
+    sort(str2.begin(),str2.end());
+    if(str1==str2){
+         cout<<"YES"<<endl;
+    }
+    else{
+        cout<<"NO"<<endl;
+    }
+}
