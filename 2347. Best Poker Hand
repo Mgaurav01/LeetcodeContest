@@ -1,0 +1,35 @@
+class Solution {
+public:
+    string bestHand(vector<int>& ranks, vector<char>& suits) {
+        unordered_map<char , int> m;
+        for(auto it : suits)
+        {
+          m[it]++;
+        }
+        string str1 = ""; 
+        if(m.size() == 1)
+        {
+          str1 = "Flush";
+          return str1;
+        }
+        unordered_map<int ,int>unm;
+        for(auto it : ranks)
+            unm[it]++;
+        int maxi = INT_MIN;
+        for(auto it : unm)
+        {
+          if(it.second > 1)
+          {
+            maxi = max(maxi , it.second);
+          }
+        }
+       string str = ""; 
+      //if(maxi == 1) str = "High Card";
+      
+      if(maxi == 2) return "Pair";
+      
+      if(maxi >= 3) return "Three of a Kind";
+      
+      return "High Card";
+    }
+};
