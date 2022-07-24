@@ -1,0 +1,22 @@
+class NumberContainers {
+public:
+    map<int,int>unorderedmp;
+    NumberContainers() {
+        
+    }
+    
+    void change(int index, int number) {
+        unorderedmp[index] = number;
+    }
+    
+    int find(int number) {
+       for(auto index : unorderedmp)
+       {
+          if(index.second == number)
+            return index.first;
+          
+            
+       }
+      return -1;
+    }
+};
