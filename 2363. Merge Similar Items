@@ -1,0 +1,24 @@
+class Solution {
+public:
+     vector<vector<int>> mergeSimilarItems(vector<vector<int>>& items1, vector<vector<int>>& items2) { 
+        unordered_map<int,int>unmap; 
+        int n = items1.size();
+        vector<vector<int>>res; 
+       
+        for(int i=0;i<n;i++)
+            unmap[items1[i][0]]+=items1[i][1]; 
+       
+        int m = items2.size();
+       
+        for(int i=0;i<m;i++) 
+            unmap[items2[i][0]]+=items2[i][1]; 
+        
+       
+        for(auto it:unmap)
+            res.push_back({it.first,it.second}); 
+        
+       
+        sort(res.begin(),res.end()); 
+        return res; 
+    } 
+};
